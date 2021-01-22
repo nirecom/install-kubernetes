@@ -35,4 +35,8 @@ resource "aws_instance" "k8s-masters" {
   credit_specification {
     cpu_credits = "standard"
   }
+  user_data = <<EOF
+sudo apt update
+sudo apt upgrade -y
+EOF
 }
