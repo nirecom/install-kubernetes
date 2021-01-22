@@ -41,3 +41,5 @@ EOF
 
 sudo systemctl daemon-reload
 sudo systemctl restart kubelet
+sudo systemctl status kubelet
+echo "Make sure kubelet is running ..."
