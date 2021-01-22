@@ -1,7 +1,7 @@
 #
 # Configure stacked etcd: other hosts
 #
-./ kubelet-etcd-priority.sh
+./kubelet-etcd-priority.sh
 
 export TARFILE=kubernetes-pki.tar
 
