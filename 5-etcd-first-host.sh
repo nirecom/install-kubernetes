@@ -6,6 +6,7 @@ export HOST0=k8s-master-ne1a
 export HOST1=k8s-master-ne1c
 export HOST2=k8s-master-ne1d
 export SCPUSER=nire
+export TARFILE=kubernetes-pki.tar
 
 # Create temp directories to store files that will end up on other hosts.
 mkdir -p /tmp/${HOST0}/ /tmp/${HOST1}/ /tmp/${HOST2}/
@@ -62,7 +63,6 @@ sudo kubeadm init phase certs apiserver-etcd-client --config=/tmp/${HOST0}/kubea
 # No need to move the certs because they are for HOST0
 
 SSHHOSTS=(${HOST1} ${HOST2})
-TARFILE=kubernetes-pki.tar
 for i in "${!SSHHOSTS[@]}"; do
   HOST=${SSHHOSTS[$i]}
   echo "Creating & Copying tarball to $HOST ..."
