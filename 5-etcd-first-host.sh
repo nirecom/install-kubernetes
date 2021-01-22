@@ -1,3 +1,6 @@
+#
+# Configure stacked etcd: HOST0
+#
 # Update HOST0, HOST1, and HOST2 with the IPs or resolvable names of your hosts
 export HOST0=k8s-master-ne1a
 export HOST1=k8s-master-ne1c
@@ -63,7 +66,7 @@ TARFILE=kubernetes-pki.tar
 for i in "${!SSHHOSTS[@]}"; do
   HOST=${SSHHOSTS[$i]}
   echo "Creating & Copying tarball to $HOST ..."
-  sudo sh -c "cd /tmp/${HOST}; tar cf /tmp/${TARFILE} ./pki"
+  sudo sh -c "cd /tmp/${HOST}; tar cf /tmp/${TARFILE} ."
   scp -r /tmp/${TARFILE} ${SCPUSER}@${HOST}:
 
   # clean up certs that should not be copied off this host
@@ -71,7 +74,8 @@ for i in "${!SSHHOSTS[@]}"; do
   sudo rm /tmp/${TARFILE}
   
 done
-echo "Run following commands manually:"
-echo "---"
-echo "cd /etc/kubernetes; sudo tar xf ~/${TARFILE}; sudo chown -R root:root /etc/kubernetes; rm ~/${TARFILE}"
-echo "---"
+
+echo "Creating Manifest on ${HOST0} ..."
+sudo kubeadm init phase etcd local --config=/tmp/${HOST0}/kubeadmcfg.yaml
+
+echo "etcd: Done on ${HOST0} . Go on to part 6"
