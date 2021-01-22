@@ -1,6 +1,8 @@
 #
 # Configure stacked etcd: HOST0
 #
+./kubelet-etcd-priority.sh
+
 # Update HOST0, HOST1, and HOST2 with the IPs or resolvable names of your hosts
 export HOST0=k8s-master-ne1a
 export HOST1=k8s-master-ne1c

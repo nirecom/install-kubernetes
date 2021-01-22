@@ -38,3 +38,5 @@ aws s3 cp $HOME/.kube/config s3://nirecom-home/.kube/
 # Apply Weave Net
 #echo "Applying Weave Net ..."
 kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+
+echo "To join other master nodes, run printed kubeadm command."
