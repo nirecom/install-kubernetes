@@ -2,7 +2,7 @@ provider "aws" {
   region = "ap-northeast-1"
 }
 variable "ami" {
-  default = "ami-005eef3e36f4158d2"
+  default = "ami-0e9208d1f0edf1344"
 }
 variable "vpc_security_group_ids" {
   default = "sg-095b074aaacd65d1c"
