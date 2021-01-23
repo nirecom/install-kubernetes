@@ -75,10 +75,7 @@ for i in "${!SSHHOSTS[@]}"; do
   # clean up certs that should not be copied off this host
   sudo find /tmp/${HOST} -name ca.key -type f -delete
   sudo rm /tmp/${TARFILE}
-  
 done
 
-echo "Creating Manifest on ${HOST0} ..."
-sudo kubeadm init phase etcd local --config=/tmp/${HOST0}/kubeadmcfg.yaml
-
-echo "etcd: Done on ${HOST0} . Go on to part 6"
+echo "etcd: Done on ${HOST0} . When all other etcd servers ready, run:"
+echo "kubeadm init phase etcd local --config=/home/ubuntu/kubeadmcfg.yaml"
