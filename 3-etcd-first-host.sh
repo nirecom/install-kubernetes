@@ -81,4 +81,4 @@ for i in "${!SSHHOSTS[@]}"; do
 done
 
 echo "etcd: Done on ${HOST0} . When all other etcd servers ready, run:"
-echo "kubeadm init phase etcd local --config=/tmp/${HOST0}/kubeadmcfg.yaml"
+echo "sudo kubeadm init phase etcd local --config=/tmp/${HOST0}/kubeadmcfg.yaml"
