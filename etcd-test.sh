@@ -1,5 +1,5 @@
 #!/bin/bash
-export HOST0=k8s-master-ne1a
+export HOST0=10.16.82.10
 docker run --rm -it \
 --net host \
 -v /etc/kubernetes:/etc/kubernetes k8s.gcr.io/etcd:3.4.3-0 etcdctl \

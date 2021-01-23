@@ -4,9 +4,12 @@
 ./kubelet-etcd-priority.sh
 
 # Update HOST0, HOST1, and HOST2 with the IPs or resolvable names of your hosts
-export HOST0=k8s-master-ne1a
-export HOST1=k8s-master-ne1c
-export HOST2=k8s-master-ne1d
+#export HOST0=k8s-master-ne1a
+#export HOST1=k8s-master-ne1c
+#export HOST2=k8s-master-ne1d
+export HOST0=10.16.82.10
+export HOST1=10.16.84.10
+export HOST2=10.16.85.10
 export SCPUSER=nire
 export TARFILE=kubernetes-pki.tar
 

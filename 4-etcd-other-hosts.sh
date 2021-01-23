@@ -15,4 +15,4 @@ fi
 sudo mv pki /etc/kubernetes
 
 echo "etcd: Done. When all other etcd servers ready, run:"
-echo "kubeadm init phase etcd local --config=/home/ubuntu/kubeadmcfg.yaml"
+echo "kubeadm init phase etcd local --config=kubeadmcfg.yaml"
