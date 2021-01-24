@@ -17,11 +17,7 @@ else
     sudo apt install -y kubectl
 fi
 
-if [ -f "$HOME/.kube/config" ]; then
-    echo "$HOME/.kube/config exists. Skip copying ..."
-else
-    echo "Copying config to $HOME/.kube ..."
-    mkdir -p $HOME/.kube
-    aws s3 cp s3://nirecom-home/.kube/config $HOME/.kube/
-fi
-#swapoff -a
+[ -f "$HOME/.kube/config" ] && rm $HOME/.kube/config
+echo "Copying config to $HOME/.kube ..."
+mkdir -p $HOME/.kube
+aws s3 cp s3://nirecom-home/.kube/config $HOME/.kube/
