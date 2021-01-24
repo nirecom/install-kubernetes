@@ -2,6 +2,14 @@
 
 Automated installation scripts for Kubernetes control plane and worker nodes. Scripts are split for each step.
 
+It's bases on following two documents:
+
+* For single node:
+https://kubernetes.io/ja/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/
+
+* For high availability architecture (3 controle nodes + 3 HA etcd)
+https://kubernetes.io/ja/docs/setup/production-environment/tools/kubeadm/high-availability/
+
 ## When you install Kubernetes
 
 * 1-docker-19.03.sh (both on master and worker)
@@ -34,4 +42,4 @@ Untaint master node, so that pods can run on master as well
 
 * etcd-cluster-unused/
 
-They are completed, but etcd is stable such as etc on the 3rd master node is unhealthy.
+They are completed, but etcd is unstable such as etc on the 3rd master node is unhealthy.
