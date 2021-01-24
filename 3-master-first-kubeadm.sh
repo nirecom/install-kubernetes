@@ -9,7 +9,9 @@
 echo "Initializing with kubeadm init ..."
 
 # If Single Node
-sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --ignore-preflight-errors=Mem
+# Less then 2GB memory causes instability. Dont.
+#sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --ignore-preflight-errors=Mem
+sudo kubeadm init --pod-network-cidr=10.244.0.0/16
 # If High Availability Nodes
 #sudo kubeadm init --control-plane-endpoint "k8s-master:16443" --upload-certs --pod-network-cidr=10.244.0.0/16 | tee ~/kubeadm-init.log.txt
 if [ $? -gt 0 ]; then
