@@ -7,9 +7,11 @@
 #sudo hostnamectl set-hostname k8s-master
 # ref. https://qiita.com/nnagashima/items/d7deb00d086b6e276eea
 echo "Initializing with kubeadm init ..."
-#sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --ignore-preflight-errors=Mem
-# --control-plan-endpoint is for high-availability masters cluster
-sudo kubeadm init --control-plane-endpoint "k8s-master:16443" --upload-certs --pod-network-cidr=10.244.0.0/16 | tee ~/kubeadm-init.log.txt
+
+# If Single Node
+sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --ignore-preflight-errors=Mem
+# If High Availability Nodes
+#sudo kubeadm init --control-plane-endpoint "k8s-master:16443" --upload-certs --pod-network-cidr=10.244.0.0/16 | tee ~/kubeadm-init.log.txt
 if [ $? -gt 0 ]; then
     echo "Kubeadm init failed. Abort."
     exit 1
